@@ -15,15 +15,12 @@ describe('Teste para o componente PostComment', () => {
         const commentInput = screen.getByTestId('comment-input');
         const submitButton = screen.getByTestId('submit-button');
 
-        // Adiciona o primeiro comentário
         fireEvent.change(commentInput, { target: { value: 'Primeiro comentário de teste' } });
         fireEvent.click(submitButton);
 
-        // Adiciona o segundo comentário
         fireEvent.change(commentInput, { target: { value: 'Segundo comentário de teste' } });
         fireEvent.click(submitButton);
 
-        // Verifica se os comentários foram adicionados
         const commentItems = screen.getAllByTestId('comment-item');
         expect(commentItems).toHaveLength(2);
         
